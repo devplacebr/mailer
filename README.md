@@ -46,7 +46,7 @@ Configure your env vars:
 aws ses create-template --cli-input-json file://payload.json
 ```
 
-4. Create your Lambda Function to consume the SQS job and send the email via SES: [LINK](http://todo.com)
+4. Create your Lambda Function to consume the SQS job and send the email via SES: [LINK](https://aws.amazon.com/pt/premiumsupport/knowledge-center/lambda-send-email-ses/)
 
 
 ## USE
