@@ -1,7 +1,7 @@
 {
   "name": "@devplace/mailer",
   "version": "0.2.0",
-  "description": "Devplace logger lib",
+  "description": "Devplace mailer lib",
   "main": "lib/src/index.js",
   "license": "MIT",
   "types": "lib/src/index.d.ts",
@@ -36,12 +36,16 @@
   },
   "homepage": "https://github.com/devplacebr/mailer",
   "devDependencies": {
-    "@types/node": "^14.14.37",
+    "@types/node": "^14.14.41",
+    "@types/uuid": "^8.3.0",
     "gts": "^3.1.0",
     "typescript": "^4.2.4"
   },
   "files": [
     "lib/**/*"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.13.0",
+    "uuid": "^8.3.2"
+  }
 }
