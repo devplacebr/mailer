@@ -1,0 +1,47 @@
+{
+  "name": "@devplace/mailer",
+  "version": "0.2.0",
+  "description": "Devplace logger lib",
+  "main": "lib/src/index.js",
+  "license": "MIT",
+  "types": "lib/src/index.d.ts",
+  "scripts": {
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "precompile": "yarn clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "yarn compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devplacebr/mailer.git"
+  },
+  "keywords": [
+    "Devplace Solutions",
+    "Mailer",
+    "Mailer schedule tool",
+    "Lambda mailer",
+    "Serverless",
+    "SES",
+    "SQS",
+    "AWS"
+  ],
+  "author": {
+    "name": "Lucas Vieira",
+    "email": "lucas@devplace.com.br"
+  },
+  "bugs": {
+    "url": "https://github.com/devplacebr/mailer/issues"
+  },
+  "homepage": "https://github.com/devplacebr/mailer",
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "gts": "^3.1.0",
+    "typescript": "^4.2.4"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {}
+}
