@@ -25,7 +25,7 @@ Configure your env vars:
 
 ## AWS CONFIGURATION
 
-1. Configure your SES domain mailer: [LINK](http://todo.com).
+1. Configure your SES domain mailer: [LINK](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
 
 2. Create a SES template with a ```payload.json``` file:
 
