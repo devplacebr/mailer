@@ -17,7 +17,7 @@ export class EmailService {
     const sesParams = {
       Source: process.env.MAILER_FROM,
       Destination: {
-        ToAddresses: params.to,
+        ToAddresses: [params.to],
         CcAddresses: params.cc || [],
       },
       Template: params.template,
