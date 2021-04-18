@@ -53,12 +53,13 @@ aws ses create-template --cli-input-json file://payload.json
 ## USE
 
 ```typescript
-import { sendTemplateEmail } from '@devplace/mailer'
+import { EmailService } from '@devplace/mailer'
 
+const client = new EmailService()
 
 // function sendSimpleTemplate(params: SendSingleTemplateEmailInput){ // Typescript approach
 function sendSimpleTemplate(input){
-  await sendTemplateEmail(input);
+  await client.sendTemplateEmail(input);
 }
 
 sendSimpleTemplate({
