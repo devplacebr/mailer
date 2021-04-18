@@ -41,7 +41,7 @@ Configure your env vars:
   }
 ```
 
-3. Create the tempalte with AWS CLI:
+3. Create the template with AWS CLI:
 
 ```bash
 aws ses create-template --cli-input-json file://payload.json
