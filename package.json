@@ -1,6 +1,6 @@
 {
   "name": "@devplace/mailer",
-  "version": "0.2.2",
+  "version": "0.2.1",
   "description": "Devplace mailer lib",
   "main": "lib/src/index.js",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "Mailer schedule tool",
     "Lambda mailer",
     "Serverless",
-    "SES",
+    "nodemailer",
     "SQS",
     "AWS"
   ],

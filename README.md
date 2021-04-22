@@ -5,7 +5,7 @@ Devplace Template Mailer Helper used for internal (and public) projects.
 Usefull to send transactional templates like recovery passwords request, first time activation, OTP, etc.
 
 - Scheduled by SQS
-- Handled by Lambda Function and SES
+- Handled by Lambda Function (nodemailer)
 
 ## Instalation
 
@@ -17,38 +17,15 @@ Usefull to send transactional templates like recovery passwords request, first t
 Configure your env vars:
 
 ```bash
-  MAILER_FROM="Dont Reply <dont-reply@domain.com>"
-  MAILER_SQS_REGION=YOUR-AWS-SQS-REGION-DEFAULTS-TO-US-EAST-1
-  MAILER_SQS_QUEUE_URL=YOUR-AWS-SQS_FIFO-QUEUE-URL
-  MAILER_SQS_ACCESS_KEY_ID=YOUR-AWS-SQS-ACCESS-KEY
-  MAILER_SQS_SECRET_ACCESS_KEY=YOUR-AWS-SQS-SECRET-KEY
+  AWS_REGION=YOUR-AWS-SQS-REGION-DEFAULTS-TO-US-EAST-1
+  AWS_ACCESS_KEY_ID=YOUR-AWS-SQS-ACCESS-KEY
+  AWS_SECRET_ACCESS_KEY=YOUR-AWS-SQS-SECRET-KEY
+  AWS_SQS_FIFO_QUEUE_URL=YOUR-AWS-SQS_FIFO-QUEUE-URL
 ```
 
-## AWS CONFIGURATION
+## LAMBDA CONFIGURATION
 
-1. Configure your SES domain mailer: [LINK](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html).
-
-2. Create a SES template with a ```payload.json``` file:
-
-```json
-  {
-    "Template": {
-      "TemplateName": "TEST_DEVPLACE",
-      "SubjectPart": "Hello, {{name}}!",
-      "HtmlPart": "<h1>Hello {{name}},</h1><p>Your link is {{link}}.</p>",
-      "TextPart": "TEST: {{name}}. Show when client webmail dont recognize HTML."
-    }
-  }
-```
-
-3. Create the template with AWS CLI:
-
-```bash
-aws ses create-template --cli-input-json file://payload.json
-```
-
-4. Create your Lambda Function to consume the SQS job and send the email via SES: [LINK](https://aws.amazon.com/pt/premiumsupport/knowledge-center/lambda-send-email-ses/)
-
+1. Create your Lambda Function to consume the SQS job and send the email via nodemailer: [EXAMPLES](https://www.edwardbeazer.com/sending-email-using-nodemailer-using-a-lambda/)
 
 ## USE
 
@@ -62,12 +39,11 @@ function sendSimpleTemplate(input){
   await client.sendTemplateEmail(input);
 }
 
+// Schedule via SQS
 sendSimpleTemplate({
   to: 'example@domain.com', // Required
   cc:['example2@domain.com'], // Optional
   template: "TEMPLATE_XPTO", // Required: SES template string
-  templateData: {name: "Lucas", buttonLink: "http://domain.com.br" } // Required: SES template data (required by each specific template)
+  templateData: { name: "Lucas", buttonLink: "http://domain.com.br" } // Required: SES template data (required by each specific template)
 });
-
 ```
-
