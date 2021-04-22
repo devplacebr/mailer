@@ -1,4 +1,4 @@
-# MAILER SCHEDULER WITH SQS, SES and Lambda
+# MAILER SCHEDULER WITH SQS and Lambda
 
 Devplace Template Mailer Helper used for internal (and public) projects.
 
@@ -43,7 +43,7 @@ function sendSimpleTemplate(input){
 sendSimpleTemplate({
   to: 'example@domain.com', // Required
   cc:['example2@domain.com'], // Optional
-  template: "TEMPLATE_XPTO", // Required: SES template string
-  templateData: { name: "Lucas", buttonLink: "http://domain.com.br" } // Required: SES template data (required by each specific template)
+  template: "TEMPLATE_XPTO", // Required
+  templateData: { name: "Lucas", buttonLink: "http://domain.com.br" } // Required
 });
 ```
