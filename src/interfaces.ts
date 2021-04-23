@@ -1,6 +1,6 @@
 export interface SendSingleTemplateEmailInput {
   to: string;
   cc?: string[];
-  template: string;
+  templateName: string;
   templateData?: Record<string, unknown>;
 }
