@@ -1,6 +1,6 @@
 {
   "name": "@devplace/mailer",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Devplace mailer lib",
   "main": "lib/src/index.js",
   "license": "MIT",
