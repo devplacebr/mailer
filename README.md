@@ -9,14 +9,14 @@ Usefull to send transactional templates like recovery passwords request, first t
 
 ## Instalation
 
-* ```yarn add @devplace/mailer```
-
+- `yarn add @devplace/mailer`
 
 ## LOCAL CONFIGURATION
 
 Configure your env vars:
 
 ```bash
+  APP_NAME=YOUR-APP-NAME
   AWS_MAILER_REGION=YOUR-AWS-SQS-REGION-DEFAULTS-TO-US-EAST-1
   AWS_MAILER_ACCESS_KEY_ID=YOUR-AWS-SQS-ACCESS-KEY
   AWS_MAILER_SECRET_ACCESS_KEY=YOUR-AWS-SQS-SECRET-KEY
@@ -30,20 +30,20 @@ Configure your env vars:
 ## USE
 
 ```typescript
-import { EmailService } from '@devplace/mailer'
+import {EmailService} from '@devplace/mailer';
 
-const client = new EmailService()
+const client = new EmailService();
 
 // function sendSimpleTemplate(params: SendSingleTemplateEmailInput){ // Typescript approach
-function sendSimpleTemplate(input){
+function sendSimpleTemplate(input) {
   await client.sendTemplateEmail(input);
 }
 
 // Schedule via SQS
 sendSimpleTemplate({
   to: 'example@domain.com', // Required
-  cc:['example2@domain.com'], // Optional
-  template: "TEMPLATE_XPTO", // Required
-  templateData: { name: "Lucas", buttonLink: "http://domain.com.br" } // Required
+  cc: ['example2@domain.com'], // Optional
+  template: 'TEMPLATE_XPTO', // Required
+  templateData: {name: 'Lucas', buttonLink: 'http://domain.com.br'}, // Required
 });
 ```
